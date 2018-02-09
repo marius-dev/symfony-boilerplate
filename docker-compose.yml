@@ -1,10 +1,12 @@
 version: '3'
 services:
-    php:
+    app:
         build: docker/php-fpm
         volumes:
             - .:/var/www/app
         working_dir: /var/www/app
+        depends_on:
+          - node
     nginx:
         build: docker/nginx
         ports:
