@@ -20,7 +20,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   mv composer.phar /usr/local/bin/composer
 
 # Install Node.js
-ENV NODE_VERSION 6.1.0
+ENV NODE_VERSION 8.0.0
 RUN set -ex \
       && for key in \
         9554F04D7259F04124DE6B476D5A82AC7E37093B \
