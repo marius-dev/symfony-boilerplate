@@ -13,9 +13,18 @@ RUN apt-get update \
   && docker-php-ext-install sockets \
   && pecl install redis && docker-php-ext-enable redis
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
 COPY php-fpm.conf /etc/php-fpm.conf
 COPY php.ini /usr/local/etc/php/php.ini
 
-#RUN useradd -ms /bin/bash www-data
-USER www-data
-WORKDIR /app
+WORKDIR /var/www/app
+
+USER root
+
+RUN chown -R www-data:www-data /var/www/app
+RUN chmod -R 777  /var/www/app
+
+
+

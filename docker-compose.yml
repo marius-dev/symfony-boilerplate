@@ -5,17 +5,17 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - ./:/app
+            - ./:/var/www/app
     php:
         build: docker/php-fpm
         volumes:
-            - ./:/app
-        working_dir: /app
-    nodejs:
+            - ./:/var/www/app
+        working_dir: /var/www/app
+    node:
         build: docker/nodejs
         volumes:
-            - ./:/app
-        working_dir: /app
+            - ./:/var/www/app
+        working_dir: /var/www/app
     redis:
         image: redis:latest
         ports:
